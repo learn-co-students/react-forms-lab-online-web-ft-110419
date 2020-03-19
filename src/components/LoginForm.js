@@ -3,39 +3,62 @@ import React from "react";
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { handleLogin: this.props.handleLogin };
+    this.state = { handleLogin: this.props.handleLogin, username: "", password: "" };
   }
 
-  handleSubmit= (event) => {
+  handleSubmit = (event) => {
     event.preventDefault()
-    // console.log("click")
-    // console.log(this.state)
     let formData = { username: this.state.username, password: this.state.password}
     this.setState(formData)
-    return this.state.handleLogin()
+    this.props.handleLogin(formData)
+    console.log(formData)
+    console.log(this.state)
   }
 
-  handleChange = (event) => {
-    // console.log(event.target)
+  handleNameChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      username: event.target.value
     })
+  }
+
+  handlePasswordChange = (event) => {
+    this.setState({
+      password: event.target.value
+    })
+  }
+
+  validate = (event) => {
+    event.preventDefault()
+    console.log(event.target.querySelector("input#username").value)
+    if (event.target.querySelector("input#username").value !== "" && event.target.querySelector("input#password").value !== "") {
+      this.handleSubmit(event)
+    }
   }
 
   render() {
     return (
-      <form onSubmit={event => this.handleSubmit(event)}>
+      <form onSubmit={event => this.validate(event)}>
         <div>
           <label>
             Username
-            {/* add onChange listener for inputs */}
-            <input id="username" name="username" type="text" onChange={event => this.handleChange(event)}/>
+            <input id="username" 
+              name="username" 
+              type="text" 
+              value={this.state.username}
+              onChange={event => this.handleNameChange(event)}
+              required
+              />
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="password" name="password" type="password" onChange={event => this.handleChange(event)}/>
+            <input id="password" 
+              name="password" 
+              type="password"             
+              value={this.state.password}
+              onChange={event => this.handlePasswordChange(event)}
+              required/>
           </label>
         </div>
         <div>
