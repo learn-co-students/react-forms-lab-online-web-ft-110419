@@ -1,15 +1,23 @@
 import React from "react";
 
 class LoginForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.state = { handleLogin: this.props.handleLogin };
+  }
 
-    this.state = {};
+  handleClick = (event) => {
+    event.preventDefault()
+    console.log("click")
+    console.log(this.state)
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }
 
   render() {
     return (
-      <form>
+      <form onSubmit={event => this.handleClick(event)}>
         <div>
           <label>
             Username
@@ -23,7 +31,7 @@ class LoginForm extends React.Component {
           </label>
         </div>
         <div>
-          <button type="submit">Log in</button>
+          <button type="submit" >Log in</button>
         </div>
       </form>
     );
