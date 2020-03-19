@@ -46,7 +46,6 @@ class LoginForm extends React.Component {
               type="text" 
               value={this.state.username}
               onChange={event => this.handleNameChange(event)}
-              required
               />
           </label>
         </div>
@@ -58,7 +57,7 @@ class LoginForm extends React.Component {
               type="password"             
               value={this.state.password}
               onChange={event => this.handlePasswordChange(event)}
-              required/>
+              />
           </label>
         </div>
         <div>
