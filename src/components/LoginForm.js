@@ -57,27 +57,3 @@ class LoginForm extends React.Component {
 }
 
 export default LoginForm;
-
-
-  // validate = (event) => {
-  //   event.preventDefault()
-  //   console.log(event.target.querySelector("input#username").value)
-  //   if (event.target.querySelector("input#username").value !== "" && event.target.querySelector("input#password").value !== "") {
-  //     this.handleSubmit(event)
-  //   }
-  // }
-
-
-
-
-  // handleNameChange = (event) => {
-  //   this.setState({
-  //     username: event.target.value
-  //   })
-  // }
-
-  // handlePasswordChange = (event) => {
-  //   this.setState({
-  //     password: event.target.value
-  //   })
-  // }
