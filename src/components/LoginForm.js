@@ -6,10 +6,16 @@ class LoginForm extends React.Component {
     this.state = { handleLogin: this.props.handleLogin };
   }
 
-  handleClick = (event) => {
+  handleSubmit= (event) => {
     event.preventDefault()
     console.log("click")
     console.log(this.state)
+    let formData = { username: this.state.username, password: this.state.password}
+    this.setState(formData)
+  }
+
+  handleChange = (event) => {
+    console.log(event.target)
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -17,17 +23,18 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={event => this.handleClick(event)}>
+      <form onSubmit={event => this.handleSubmit(event)}>
         <div>
           <label>
             Username
-            <input id="username" name="username" type="text" />
+            {/* add onChange listener for inputs */}
+            <input id="username" name="username" type="text" onChange={event => this.handleChange(event)}/>
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="password" name="password" type="password" />
+            <input id="password" name="password" type="password" onChange={event => this.handleChange(event)}/>
           </label>
         </div>
         <div>
