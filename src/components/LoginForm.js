@@ -7,38 +7,28 @@ class LoginForm extends React.Component {
     // handleLogin: this.props.handleLogin()
   }
 
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
   handleSubmit = (event) => {
     event.preventDefault()
     let formData = { username: this.state.username, password: this.state.password}
     this.setState(formData)
-    this.props.handleLogin(formData)
-    console.log(formData)
     console.log(this.state)
-  }
+    // if (event.target.querySelector("input#username").value !== "" && event.target.querySelector("input#password").value !== "") {
+     if (this.state.username !== "" && this.state.password !== "") {
 
-  handleNameChange = (event) => {
-    this.setState({
-      username: event.target.value
-    })
-  }
-
-  handlePasswordChange = (event) => {
-    this.setState({
-      password: event.target.value
-    })
-  }
-
-  validate = (event) => {
-    event.preventDefault()
-    console.log(event.target.querySelector("input#username").value)
-    if (event.target.querySelector("input#username").value !== "" && event.target.querySelector("input#password").value !== "") {
-      this.handleSubmit(event)
+    console.log(this.state)
+      this.props.handleLogin(formData)
     }
   }
 
   render() {
     return (
-      <form onSubmit={event => this.validate(event)}>
+      <form onSubmit={event => this.handleSubmit(event)}>
         <div>
           <label>
             Username
@@ -46,7 +36,10 @@ class LoginForm extends React.Component {
               name="username" 
               type="text" 
               value={this.state.username}
-              onChange={event => this.handleNameChange(event)}
+              // onChange={event => this.handleNameChange(event)}
+              // onChange={event => this.handleChange(event)}
+              onChange={this.handleChange}
+
               />
           </label>
         </div>
@@ -57,7 +50,9 @@ class LoginForm extends React.Component {
               name="password" 
               type="password"             
               value={this.state.password}
-              onChange={event => this.handlePasswordChange(event)}
+              // onChange={event => this.handlePasswordChange(event)}
+              // onChange={event => this.handleChange(event)}
+              onChange={this.handleChange}
               />
           </label>
         </div>
@@ -70,3 +65,27 @@ class LoginForm extends React.Component {
 }
 
 export default LoginForm;
+
+
+  // validate = (event) => {
+  //   event.preventDefault()
+  //   console.log(event.target.querySelector("input#username").value)
+  //   if (event.target.querySelector("input#username").value !== "" && event.target.querySelector("input#password").value !== "") {
+  //     this.handleSubmit(event)
+  //   }
+  // }
+
+
+
+
+  // handleNameChange = (event) => {
+  //   this.setState({
+  //     username: event.target.value
+  //   })
+  // }
+
+  // handlePasswordChange = (event) => {
+  //   this.setState({
+  //     password: event.target.value
+  //   })
+  // }
