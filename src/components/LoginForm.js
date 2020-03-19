@@ -12,7 +12,7 @@ class LoginForm extends React.Component {
     // console.log(this.state)
     let formData = { username: this.state.username, password: this.state.password}
     this.setState(formData)
-    // return this.props.handleLogin()
+    return this.state.handleLogin()
   }
 
   handleChange = (event) => {
