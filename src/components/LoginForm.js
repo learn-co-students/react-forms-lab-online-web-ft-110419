@@ -8,14 +8,14 @@ class LoginForm extends React.Component {
 
   handleSubmit= (event) => {
     event.preventDefault()
-    console.log("click")
-    console.log(this.state)
+    // console.log("click")
+    // console.log(this.state)
     let formData = { username: this.state.username, password: this.state.password}
     this.setState(formData)
   }
 
   handleChange = (event) => {
-    console.log(event.target)
+    // console.log(event.target)
     this.setState({
       [event.target.name]: event.target.value
     })
