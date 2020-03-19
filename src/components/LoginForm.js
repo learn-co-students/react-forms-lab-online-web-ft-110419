@@ -3,7 +3,8 @@ import React from "react";
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { handleLogin: this.props.handleLogin, username: "", password: "" };
+    this.state = { username: "", password: "" };
+    // handleLogin: this.props.handleLogin()
   }
 
   handleSubmit = (event) => {
