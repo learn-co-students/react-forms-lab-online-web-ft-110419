@@ -4,7 +4,6 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { username: "", password: "" };
-    // handleLogin: this.props.handleLogin()
   }
 
   handleChange = (event) => {
@@ -18,10 +17,8 @@ class LoginForm extends React.Component {
     let formData = { username: this.state.username, password: this.state.password}
     this.setState(formData)
     console.log(this.state)
-    // if (event.target.querySelector("input#username").value !== "" && event.target.querySelector("input#password").value !== "") {
      if (this.state.username !== "" && this.state.password !== "") {
-
-    console.log(this.state)
+      console.log(this.state)
       this.props.handleLogin(formData)
     }
   }
@@ -36,10 +33,7 @@ class LoginForm extends React.Component {
               name="username" 
               type="text" 
               value={this.state.username}
-              // onChange={event => this.handleNameChange(event)}
-              // onChange={event => this.handleChange(event)}
               onChange={this.handleChange}
-
               />
           </label>
         </div>
@@ -50,8 +44,6 @@ class LoginForm extends React.Component {
               name="password" 
               type="password"             
               value={this.state.password}
-              // onChange={event => this.handlePasswordChange(event)}
-              // onChange={event => this.handleChange(event)}
               onChange={this.handleChange}
               />
           </label>
