@@ -8,6 +8,8 @@ class App extends Component {
     console.log(`Logging in ${username} with password ${password}`);
   };
 
+  handle
+
   render() {
     return (
       <div>
